@@ -17,7 +17,7 @@ public class PostprocessBuild_ADBMobile : UnityEngine.MonoBehaviour
 			//Copy config vars
 			string configPathUnity = "/Plugins/iOS/ADBMobile/ADBMobileConfig.json";
 			string configPathUnityFull = Application.dataPath + configPathUnity;
-			string configPathXcode = "/Libraries/Plugins/iOS/ADBMobile/ADBMobileConfig.json";
+			string configPathXcode = "Libraries/Plugins/iOS/ADBMobile/ADBMobileConfig.json";
 			string configPathXcodeFull = path + configPathXcode;
 			Debug.LogError("-------DEBUGGERY--------");
 			Debug.LogError("-------DEBUGGERY--------");
