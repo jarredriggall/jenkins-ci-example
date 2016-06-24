@@ -27,6 +27,8 @@ public class PostprocessBuild_ADBMobile : UnityEngine.MonoBehaviour
 			Debug.LogError("Xcode source path: " + configPathXcode);
 			Debug.LogError("Xcode full path p1: " + path);
 			Debug.LogError("Xcode full path p2: " + configPathXcode);
+			Debug.LogError("Xcode full path p3: " + configPathXcodeFull);
+			Debug.LogError("Xcode full path p4: " + Path.Combine(path, configPathXcode));
 
 
 
