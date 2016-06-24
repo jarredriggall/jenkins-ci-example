@@ -32,9 +32,6 @@ public class AutoBuilder : MonoBehaviour
 	// Build Logic
 	private static void BuildProject (string platform)
 	{
-        // rebuild GAF animations and reimport them to prefabs
-        ProjectEditor.RebuildAndReimportAnimations();
-
         // set vals
         scenes = GetScenes();
 		BuildTarget target = BuildTarget.StandaloneOSXUniversal;
