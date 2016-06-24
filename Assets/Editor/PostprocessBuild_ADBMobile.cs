@@ -19,6 +19,18 @@ public class PostprocessBuild_ADBMobile : UnityEngine.MonoBehaviour
 			string configPathUnityFull = Application.dataPath + configPathUnity;
 			string configPathXcode = "/Libraries/Plugins/iOS/ADBMobile/ADBMobileConfig.json";
 			string configPathXcodeFull = path + configPathXcode;
+			Debug.LogError("-------DEBUGGERY--------");
+			Debug.LogError("-------DEBUGGERY--------");
+
+			Debug.LogError("Unity source path: " + configPathUnity);
+			Debug.LogError("Unity fulll path: " + configPathUnityFull);
+			Debug.LogError("Xcode source path: " + configPathXcode);
+			Debug.LogError("Xcode full path: " + configPathXcodeFull);
+
+			Debug.LogError("-------DEBUGGERY--------");
+			Debug.LogError("-------DEBUGGERY--------");
+
+
 
 			PBXProject proj = new PBXProject();
 			proj.ReadFromString(File.ReadAllText(projPath));
