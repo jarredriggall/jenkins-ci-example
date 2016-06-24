@@ -25,7 +25,10 @@ public class PostprocessBuild_ADBMobile : UnityEngine.MonoBehaviour
 			Debug.LogError("Unity source path: " + configPathUnity);
 			Debug.LogError("Unity fulll path: " + configPathUnityFull);
 			Debug.LogError("Xcode source path: " + configPathXcode);
-			Debug.LogError("Xcode full path: " + configPathXcodeFull);
+			Debug.LogError("Xcode full path p1: " + path);
+			Debug.LogError("Xcode full path p2: " + configPathXcode);
+
+
 
 			Debug.LogError("-------DEBUGGERY--------");
 			Debug.LogError("-------DEBUGGERY--------");
