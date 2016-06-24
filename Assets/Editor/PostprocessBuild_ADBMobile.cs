@@ -49,8 +49,8 @@ public class PostprocessBuild_ADBMobile : UnityEngine.MonoBehaviour
 			File.Copy(configPathUnityFull, configPathXcodeFull);
 
 			//Add file to the project, and make sure it is included in the Xcode build
-			string fileToAdd = proj.AddFile(configPathXcodeFull, configPathXcode);
-			proj.AddFileToBuild(target, fileToAdd);
+			//string fileToAdd = proj.AddFile(configPathXcodeFull, configPathXcode);
+			//proj.AddFileToBuild(target, fileToAdd);
 
 			File.WriteAllText(projPath, proj.WriteToString());
 		}
