@@ -46,7 +46,7 @@ public class PostprocessBuild_ADBMobile : UnityEngine.MonoBehaviour
 					string directoryString = path + dirTest;
 					directoryString = directoryString.Replace("//", "/");
 					Debug.LogError("FOUND A DIRECTORY TO PUT THE JASON FILE HERE: " + directoryString);
-					string fileToAdd = proj.AddFile(configPathXcodeFull, configPathXcode);
+					string fileToAdd = proj.AddFile(configPathXcode, configPathXcode);
 					proj.AddFileToBuild(target, fileToAdd);
 				}
 				else
