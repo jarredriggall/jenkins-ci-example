@@ -43,14 +43,15 @@ public class PostprocessBuild_ADBMobile : UnityEngine.MonoBehaviour
 				if(Directory.Exists(path + dirTest))
 				{
 					Debug.LogError("FOUND A DIRECTORY TO PUT THE JASON FILE HERE: " + path + dirTest);
+					string fileToAdd = proj.AddFile(configPathXcodeFull, configPathXcode, PBXSourceTree.Source);
+					proj.AddFileToBuild(target, fileToAdd);
 				}
 				else
 				{
 					Debug.LogError("INVALID DIRECTORY TO PUT THE JASON FILE: " + dirTest);
 				}
 
-				string fileToAdd = proj.AddFile(configPathXcodeFull, configPathXcode);
-				proj.AddFileToBuild(target, fileToAdd);
+
 			}
 			// CN Auto Build system (FastLane) has some quirks
 			else
