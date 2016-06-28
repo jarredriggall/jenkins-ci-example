@@ -19,6 +19,7 @@ public class PostprocessBuild_ADBMobile : UnityEngine.MonoBehaviour
 			string configPathUnityFull = Application.dataPath + configPathUnity;
 			string configPathXcode = "/Libraries/Plugins/iOS/ADBMobile/ADBMobileConfig.json";
 			string configPathXcodeFull = path + configPathXcode;
+			string dirTest = "/Libraries/Plugins/iOS/ADBMobile";
 
 			PBXProject proj = new PBXProject();
 			proj.ReadFromString(File.ReadAllText(projPath));
@@ -37,16 +38,17 @@ public class PostprocessBuild_ADBMobile : UnityEngine.MonoBehaviour
 			//Default building
 			if(File.Exists(configPathXcodeFull))
 			{
-				Debug.LogError("FOUND JASON FILE LOCATED: " + configPathXcodeFull);
+				Debug.LogError("FOUND JASON FILE IN XCODE HERE: " + configPathXcodeFull);
 
-				if(File.Exists(configPathXcode))
+				if(Directory.Exists(path + dirTest))
 				{
-					Debug.LogError("FOUND 2 JASON FILE LOCATED: " + configPathXcodeFull);
+					Debug.LogError("FOUND A DIRECTORY TO PUT THE JASON FILE HERE: " + path + dirTest);
 				}
 				else
 				{
-					Debug.LogError("DID NOT FOUND JASON FILE LOCATED: " + configPathXcodeFull);
+					Debug.LogError("INVALID DIRECTORY TO PUT THE JASON FILE: " + dirTest);
 				}
+
 				string fileToAdd = proj.AddFile(configPathXcodeFull, configPathXcode);
 				proj.AddFileToBuild(target, fileToAdd);
 			}
