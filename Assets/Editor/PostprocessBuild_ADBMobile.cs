@@ -38,6 +38,15 @@ public class PostprocessBuild_ADBMobile : UnityEngine.MonoBehaviour
 			if(File.Exists(configPathXcodeFull))
 			{
 				Debug.LogError("FOUND JASON FILE LOCATED: " + configPathXcodeFull);
+
+				if(File.Exists(configPathXcode))
+				{
+					Debug.LogError("FOUND 2 JASON FILE LOCATED: " + configPathXcodeFull);
+				}
+				else
+				{
+					Debug.LogError("DID NOT FOUND JASON FILE LOCATED: " + configPathXcodeFull);
+				}
 				string fileToAdd = proj.AddFile(configPathXcodeFull, configPathXcode);
 				proj.AddFileToBuild(target, fileToAdd);
 			}
