@@ -8,21 +8,13 @@ platform :ios do
     ENV["DELIVER_ITMSTRANSPORTER_ADDITIONAL_UPLOAD_PARAMETERS"] = "-t DAV"
   end
 
-  desc "Runs all the tests"
-  lane :test do
-    scan
-  end
-
   desc "Submit a new Beta Build to Apple TestFlight"
   lane :beta do
-    increment_build_number(build_number: ENV["BUILD_NUMBER"].to_s + '.0')
     increment_version_number(version_number: '0.0.1')
-    update_app_identifier(
-      plist_path: 'Info.plist',
-      app_identifier: 'com.turner.autobuildertest'
-    )
+    increment_build_number(build_number: ENV["BUILD_NUMBER"].to_s + '.0')
+    update_app_identifier(plist_path: 'Info.plist',app_identifier: 'com.turner.autobuildertest')
     #sigh(skip_fetch_profiles: true)
-    gym(provisioning_profile_path: "Autobuild_Test.mobileprovision")
+    gym
     #pilot(skip_submission: true)
   end
 
