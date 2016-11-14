@@ -12,7 +12,8 @@ platform :ios do
   lane :beta do
     increment_version_number(version_number: '0.0.2')
     increment_build_number(build_number: ENV["BUILD_NUMBER"].to_s + '.0')
-    update_app_identifier(plist_path: 'Info.plist',app_identifier: 'com.turner.autobuildertest')
+    ENV["APP_IDENTIFIER"] = "com.turner.cardwars2"
+    update_info_plist(plist_path: "./Info.plist", app_identifier: ENV["APP_IDENTIFIER"])
     #sigh(skip_fetch_profiles: true)
     gym
     #pilot(skip_submission: true)
