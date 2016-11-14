@@ -11,6 +11,11 @@ platform :ios do
   desc "Submit a new Beta Build to Apple TestFlight"
   lane :beta do
     #sigh(skip_fetch_profiles: true)
+    update_app_identifier(
+      xcodeproj: 'Unity-iPhone.xcodeproj',
+      plist_path: "Info.plist",
+      app_identifier: "com.turner.cardwars3",
+    )
     gym
     #pilot(skip_submission: true)
   end
