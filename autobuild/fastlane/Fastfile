@@ -8,29 +8,14 @@ platform :ios do
     ENV["DELIVER_ITMSTRANSPORTER_ADDITIONAL_UPLOAD_PARAMETERS"] = "-t DAV"
   end
 
+  for_lane "ios beta" do
+      app_identifier "com.beta.FastLanePOC"
+  end
+  
   desc "Submit a new Beta Build to Apple TestFlight"
   lane :beta do
-    increment_version_number(version_number: '0.0.2')
-    increment_build_number(build_number: ENV["BUILD_NUMBER"].to_s + '.0')
-    ENV["APP_IDENTIFIER"] = "com.turner.cardwars2"
-    update_info_plist(plist_path: "./Info.plist", app_identifier: ENV["APP_IDENTIFIER"])
     #sigh(skip_fetch_profiles: true)
     gym
     #pilot(skip_submission: true)
-  end
-
-  after_all do |lane|
-    # This block is called, only if the executed lane was successful
-
-    # slack(
-    #   message: "Successfully deployed new App Update."
-    # )
-  end
-
-  error do |lane, exception|
-    # slack(
-    #   message: exception.message,
-    #   success: false
-    # )
   end
 end
