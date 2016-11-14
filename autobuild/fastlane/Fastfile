@@ -7,10 +7,6 @@ platform :ios do
     ENV["FASTLANE_XCODE_LIST_TIMEOUT"] = '120'
     ENV["DELIVER_ITMSTRANSPORTER_ADDITIONAL_UPLOAD_PARAMETERS"] = "-t DAV"
   end
-
-  for_lane "ios beta" do
-      app_identifier "com.beta.FastLanePOC"
-  end
   
   desc "Submit a new Beta Build to Apple TestFlight"
   lane :beta do
